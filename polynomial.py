@@ -1,6 +1,6 @@
 def evaluate_polynomial(degree, x, constant_term, *coefficients):
     if len(coefficients) != degree:
-        raise ValueError("Number of coefficients does not match degree")
+        raise ValueError(f"Need {degree} coefficient(s)")
 
     result = 0
     highest_degree=degree-1
