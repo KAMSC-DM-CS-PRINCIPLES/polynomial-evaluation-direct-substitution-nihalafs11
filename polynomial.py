@@ -1,7 +1,13 @@
 def evaluate_polynomial(degree, x, constant_term, *coefficients):
-    result = constant_term
-    i = len(coefficients) - 1
-    while i >= 0:
-        result *= x**i + coefficients[i]
-        i -= 1
+    if len(coefficients) != degree:
+        raise ValueError("Number of coefficients does not match degree")
+
+    result = 0
+    highest_degree=degree-1
+
+    while highest_degree >= 0:
+        result += coefficients[highest_degree]
+        highest_degree -= 1
+
+    result= result * x + coefficients[highest_degree]
     return result
