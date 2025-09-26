@@ -2,12 +2,12 @@ def evaluate_polynomial(degree, x, constant_term, *coefficients):
     if len(coefficients) != degree:
         raise ValueError(f"Need {degree} coefficient(s)")
 
-    result = 0
-    highest_degree=degree-1
+    total = constant_term
+    print (f"(value of the constant term)= {total}")
 
-    while highest_degree >= 0:
-        result += coefficients[highest_degree]
-        highest_degree -= 1
-
-    result= result * x + coefficients[highest_degree]
-    return result
+    k=1
+    while k <= degree:
+        value = coefficients[k-1] * (x**k)
+        old_total = total
+        total = total + value
+        print(f"S{k} (sum of the {k+1} lowest terms) = {old_total} + {coefficients[k-1]}({x}^{k}) = {total}")
