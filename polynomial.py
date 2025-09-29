@@ -1,11 +1,11 @@
 def evaluate_polynomial(degree, x, constant_term, *coefficients):
     # set P and k
-    k = 0
+    k = 1
     P = constant_term
     print(f"S0 (value of the constant term) = {P}")
-    while k < degree-1:
-        P = str(int(P) + coefficients[k] * (x ** (k)))
-        print(f"S{k+1} (Sum of the {k} lowest terms) = {P}")
+    while k <= degree:
+        P = str(int(P) + coefficients[k-1] * (x ** (k)))
+        print(f"S{k} (Sum of the {k+1} lowest terms) = {P}")
         k = k + 1
     print(f"P(x)= {P}")
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     degree = int(input("Degree of the polynomial: "))
     x = int(input("Value of x: "))
     constant_term = int(input("Value of constant term: "))
-    for i in range(degree-1):
+    for i in range(degree):
         coefficients.append(int(input(f"Value of coefficient x^{str(i+1)}: ")))
     evaluate_polynomial(degree, x, constant_term, *coefficients)
 
