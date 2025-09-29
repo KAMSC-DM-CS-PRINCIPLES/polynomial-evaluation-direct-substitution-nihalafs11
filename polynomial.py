@@ -2,8 +2,7 @@ def evaluate_polynomial(degree, x, constant_term, *coefficients):
     # TODO: Implement polynomial evaluation using direct substitution method
     # TODO: Print step-by-step evaluation (S0, S1, S2, etc.)
     # TODO: Return final polynomial result
-    print()
-    coeffs = coefficients
+    coeffs=coefficients
     S = constant_term
     k = 1
     if len(coeffs) != degree:
@@ -27,14 +26,15 @@ if __name__ == "__main__":
     # TODO: Ask user if they want to run again
     person ="y"
     while person=="y":
-        Degree = input("Degree:  ")
-        x = input("x:  ")
-        Constant = input("Constant term:  ")
+        Degree = int(input("Degree:  "))
+        x = float(input("x:  "))
+        Constant = float(input("Constant term:  "))
         coeffs = []
         for i in range(1,Degree+1):
-            coeffs.insert(input("Coefficient x^"+str(i)+":  "))
+            coeffs.append(int(input("Coefficient x^"+str(i)+":  ")))
         print(Degree, x, Constant, coeffs)
-        evaluate_polynomial(Degree, x, Constant, coeffs)
+        print(len(coeffs))
+        evaluate_polynomial(Degree, x, Constant, *coeffs)
 
         person = input("Run again(y/n)?  ")
     pass
