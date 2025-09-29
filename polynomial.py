@@ -15,12 +15,12 @@ def evaluate_polynomial(degree, x, constant_term, *coefficients):
 
 
 if __name__ == "__main__":
-    coefficients = []
+    coefficients = ()
     degree = int(input("Degree of the polynomial: "))
     x = int(input("Value of x: "))
     constant_term = int(input("Value of constant term: "))
     for i in range(degree):
-        coefficients.append(int(input(f"Value of coefficient x^{str(i+1)}: ")))
+        coefficients+=(int(input("Value of coefficient: ")), )
     evaluate_polynomial(degree, x, constant_term, *coefficients)
 
 
