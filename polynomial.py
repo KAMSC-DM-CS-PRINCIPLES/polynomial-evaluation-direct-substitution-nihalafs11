@@ -3,12 +3,14 @@ def evaluate_polynomial(degree, x, constant_term, *coefficients):
     k = 1
     P = constant_term
     print(f"S0 (value of the constant term) = {P}")
+    if len(coefficients) != degree:
+        raise ValueError("Number of coefficients must equal the degree of the polynomial.")
     while k <= degree:
         P = str(int(P) + coefficients[k-1] * (x ** (k)))
         print(f"S{k} (Sum of the {k+1} lowest terms) = {P}")
         k = k + 1
     print(f"P(x)= {P}")
-    return P
+    return int(P)
 
     # TODO: Implement polynomial evaluation using direct substitution method
     # TODO: Print step-by-step evaluation (S0, S1, S2, etc.)
